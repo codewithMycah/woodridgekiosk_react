@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@import "@fontsource-variable/geist/index.css";
+
+@layer {
+    body {
+        font-family: "Geist Variable", "sans-serif";
+    }
+}
