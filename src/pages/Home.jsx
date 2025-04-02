@@ -10,7 +10,7 @@ export default function Home() {
         <>
             <Hero />
             <div className='flex'>
-                <Sidebar />
+                {/* <Sidebar /> */}
                 <Businesses />
             </div>
             <Footer />
