@@ -9,16 +9,16 @@ export default function Businesses() {
 
     // Fetch businesses from backend
     useEffect(() => {
-    const fetchData = async () => {
-        try {
-            const response = await axios.get('http://127.0.0.1:5000/api/businesses')
-            setBusinesses(Array.isArray(response.data) ? response.data : [])
-        } catch (error) {
-            console.error('Error:', error.message)
-        }
-        };
-    
-    fetchData();
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://127.0.0.1:5000/api/businesses')
+                setBusinesses(Array.isArray(response.data) ? response.data : [])
+            } catch (error) {
+                console.error('Error:', error.message)
+            }
+            };
+        
+        fetchData();
     }, []);
 
     // Helper to get image URL
