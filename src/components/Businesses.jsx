@@ -11,11 +11,13 @@ import config from '../config';
 
 // icons
 import { MapPin, Phone, Link as LinkIcon, ArrowUpAZ, ListFilter } from 'lucide-react'
+import { InfinitySpin } from 'react-loader-spinner'
 
 export default function Businesses() {
     const [businesses, setBusinesses] = useState([]); // variable to store the data from backend
     const [filtered, setFiltered] = useState([]); // Filtered businesses
     const [searchQuery, setSearchQuery] = useState(""); // variable for search input
+    const loading = false // loading icon visibility set initially to false
 
     // Fetch businesses data from backend (flask & python)
     useEffect(() => {
@@ -33,7 +35,7 @@ export default function Businesses() {
             } catch (error) {
                 console.error('Error:', error.message)
             }
-            };
+        };
         
         // call the fetchData function
         fetchData();
@@ -109,7 +111,15 @@ export default function Businesses() {
             {/* Check if filtered variable is empty or not */}
             {/* Shows string 'Loading business' otherwise it shows businesses data */}
             {filtered.length === 0 ? (
-                <p>Loading businesses...</p>
+                <div className='flex flex-col h-screen items-center justify-center gap-2'>
+                    <InfinitySpin
+                        visible={!loading}
+                        width="200"
+                        color="#4fa94d"
+                        ariaLabel="infinity-spin-loading"
+                    />
+                    <p className='font-mono'>Loading businesses...</p>
+                </div>
             ) : (
                 <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-6 gap-4 w-full'>
                     {filtered.length > 0 ? (
