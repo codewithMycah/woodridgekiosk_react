@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, House, List, BadgePercent } from 'lucide-react'
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -8,17 +8,16 @@ export default function Navbar() {
     return (
         <>
             <nav className="bg-white shadow-md pt-8 md:pt-0">
-                <div className="container mx-auto flex items-center justify-between px-4 py-6">
-                    <a href="#">
+                <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-6">
+                    <a href="/">
                         <img src="/src/assets/woodridge.svg" alt="Icon" className='w-36' />
                     </a>
 
                     {/* Desktop Menu */}
-                    <ul className="hidden md:flex space-x-8">
-                        <li><a href="/" className="hover:text-blue-500">Home</a></li>
-                        <li><a href="#" className="hover:text-blue-500">Listings</a></li>
-                        <li><a href="#" className="hover:text-blue-500">Categories</a></li>
-                        <li><a href="#" className="hover:text-blue-500">Deals</a></li>
+                    <ul className="hidden md:flex space-x-8 [&>li>a]:flex [&>li>a]:flex-row [&>li>a]:items-center [&>li>a]:gap-2 [&>li>a:hover]:hover:text-green-500">
+                        <li><a href="/"><House /> Home</a></li>
+                        <li><a href="#"><List /> Listings</a></li>
+                        <li><a href="#"><BadgePercent /> Deals</a></li>
                     </ul>
 
                     {/* Mobile Menu Button */}
@@ -29,11 +28,10 @@ export default function Navbar() {
 
                 {/* Mobile Menu */}
                 {isOpen && (
-                    <ul className="md:hidden flex flex-col items-center space-y-4 p-4">
-                        <li><a href="/" className="hover:text-blue-500" onClick={toggleMenu}>Home</a></li>
-                        <li><a href="#" className="hover:text-blue-500" onClick={toggleMenu}>Listings</a></li>
-                        <li><a href="#" className="hover:text-blue-500" onClick={toggleMenu}>Categories</a></li>
-                        <li><a href="#" className="hover:text-blue-500" onClick={toggleMenu}>Deals</a></li>
+                    <ul className="md:hidden flex flex-col items-center space-y-2 p-4 [&>li>a]:flex [&>li>a]:flex-row [&>li>a]:items-center [&>li>a]:gap-2 [&>li>a:hover]:hover:text-green-500">
+                        <li><a href="/" onClick={toggleMenu}><House /> Home</a></li>
+                        <li><a href="#" onClick={toggleMenu}><List /> Listings</a></li>
+                        <li><a href="#" onClick={toggleMenu}><BadgePercent /> Deals</a></li>
                     </ul>
                 )}
             </nav>

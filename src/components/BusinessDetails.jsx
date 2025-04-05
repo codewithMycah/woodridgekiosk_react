@@ -56,7 +56,9 @@ export default function BusinessDetails() {
                             <h3 className='flex flex-row gap-2'><MapPin />{business.address}</h3>
                         </div>
                     </div>
-                    <GoogleMap></GoogleMap>
+                    <div className='max-w-7xl mx-auto'>
+                        <GoogleMap></GoogleMap>
+                    </div>
                 </div>
             )}
         </>

@@ -75,8 +75,8 @@ export default function Businesses() {
     return (
         <>
         
-        <div className='flex flex-col p-6 mx-auto'>
-            <div className='flex flex-row gap-x-4 items-center justify-center text-sm text-gray-600'>
+        <div className='max-w-7xl flex flex-col mx-auto py-4'>
+            <div className='flex flex-row items-center justify-center text-sm text-gray-600 gap-4'>
                 <div>
                     {/* Search Bar */}
                     <div className="flex px-4 py-1 rounded-md border-2 border-green-500 overflow-hidden max-w-lg mx-auto">
@@ -121,7 +121,7 @@ export default function Businesses() {
                     <p className='font-mono'>Loading businesses...</p>
                 </div>
             ) : (
-                <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-6 gap-4 w-full'>
+                <ul className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 px-6 gap-4 w-full'>
                     {filtered.length > 0 ? (
                         filtered.map((business) => (
                             <li key={business._id} className='border border-gray-300 rounded-xl hover:scale-105'>
